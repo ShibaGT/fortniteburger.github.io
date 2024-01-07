@@ -8,36 +8,82 @@
       margin: 0;
       overflow: hidden;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background: linear-gradient(45deg, #3498db, #e74c3c, #2ecc71, #f39c12);
-      background-size: 400% 400%;
-      animation: gradient 15s infinite;
+      background: url('https://media1.tenor.com/m/Fl6m3zSv3XgAAAAd/monkey-spinning.gif') center center fixed; /* Replace with the actual URL */
+      background-size: cover;
+      opacity: 0.4; /* Adjusted opacity to make it more faded */
     }
 
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+    .text-container {
+      position: relative;
+      padding: 20px; /* Added padding for better spacing */
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50%);
+      animation: borderAnimation 1s ease-out forwards, fadeInUp 1s ease-out forwards;
+    }
+
+    .border {
+      position: relative;
+      border: 2px solid #fff; /* White border around the texts */
+      overflow: hidden;
+      border-radius: 8px; /* Added border radius for a rounded look */
+      padding: 20px; /* Increased padding for more space */
+    }
+
+    .inner-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(45deg, #000000, #090909, #000000); /* Darker gradient inside the border */
+      opacity: 0.8; /* Adjusted opacity to make it darker */
+      z-index: -1; /* Move the inner gradient behind the text */
+    }
+
+    h1, p {
+      font-family: 'Arial', sans-serif;
+      color: #fff; /* White text color */
+      margin: 0; /* Removed default margin */
+      z-index: 1; /* Ensure text is above the inner gradient */
     }
 
     h1 {
-      font-family: 'Arial', sans-serif;
-      color: #fff;
       font-size: 3em;
-      text-align: center;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-top: 10px; /* Adjusted margin for spacing between the texts */
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes borderAnimation {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
   <title>fortniteburger.pro</title>
 </head>
 <body>
-  <h1>fortniteburger.pro</h1>
+  <div class="text-container">
+    <div class="border">
+      <div class="inner-gradient"></div>
+      <h1>fortniteburger.pro</h1>
+      <p>saul shitman is a pookie man</p>
+    </div>
+  </div>
 </body>
 </html>
